@@ -1,0 +1,62 @@
+#!/bin/bash
+#
+# perlbal       This shell script starts the Perlbal load-balancer
+#
+# Author:       Ruben Kerkhof <ruben@rubenkerkhof.com>
+#
+# chkconfig: - 85 15
+#
+# description:  Perlbal is a reverse proxy and load-balancer
+# processname:  perlbal
+# config: /etc/perlbal/perlbal.conf
+# pidfile: /var/run/perlbal.pid
+#
+
+# source function library
+. /etc/rc.d/init.d/functions
+
+RETVAL=0
+
+start() {
+	echo -n $"Starting Perlbal: "
+	daemon perlbal --daemon
+	RETVAL=$?
+	echo
+	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/perlbal
+}
+
+stop() {
+	echo -n $"Stopping Perlbal: "
+	killproc perlbal
+	echo
+	[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/perlbal
+}
+
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop) 
+	stop
+	;;
+  restart|force-reload|reload)
+	restart
+	;;
+  condrestart)
+	[ -f /var/lock/subsys/perlbal ] && restart
+	;;
+  status)
+	status perlbal
+	RETVAL=$?
+	;;
+  *)
+	echo $"Usage: $0 {start|stop|status|restart|reload|force-reload|condrestart}"
+	exit 1
+esac
+
+exit $RETVAL

@@ -1,8 +1,8 @@
 Name:           Perlbal
 Version:        1.59
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
-License:        GPL or Artistic
+License:        GPL+ or Artistic
 Group:          System Environment/Daemons
 URL:            http://search.cpan.org/dist/Perlbal/
 Source0:        http://search.cpan.org/CPAN/authors/id/B/BR/BRADFITZ/%{name}-%{version}.tar.gz
@@ -97,6 +97,9 @@ fi
 
 
 %changelog
+* Thu Feb 07 2008 Tom "spot" Callaway <tcallawa@redhat.com> 1.59-2
+- rebuild for new perl
+
 * Wed Jun 20 2007 Ruben Kerkhof <ruben@rubenkerkhof.com> 1.59-1
 - Upstream released new version
 - Received patch from upstream for failing buffered upload test (240693)

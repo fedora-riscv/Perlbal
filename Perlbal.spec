@@ -1,13 +1,12 @@
 Name:           Perlbal
 Version:        1.60
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
 URL:            http://search.cpan.org/dist/Perlbal/
 Source0:        http://search.cpan.org/CPAN/authors/id/B/BR/BRADFITZ/%{name}-%{version}.tar.gz
 Source1:        perlbal.init
-Patch0:         Perlbal-1.59-fix-buffered-upload-test.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -42,7 +41,6 @@ can override many parts of request handling and behavior.
 
 %prep
 %setup -q -n Perlbal-%{version}
-%patch0 -p1
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -97,6 +95,9 @@ fi
 
 
 %changelog
+* Thu Feb 07 2008 Tom "spot" Callaway <tcallawa@redhat.com> 1.60-2
+- don't need patch, merged with 1.60
+
 * Thu Feb 07 2008 Tom "spot" Callaway <tcallawa@redhat.com> 1.60-1
 - 1.60
 

@@ -1,6 +1,6 @@
 Name:           Perlbal
-Version:        1.60
-Release:        2%{?dist}
+Version:        1.70
+Release:        1%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -95,6 +95,9 @@ fi
 
 
 %changelog
+* Sun Mar 09 2008 Tom "spot" Callaway <tcallawa@redhat.com> 1.70-1
+- 1.70 (fixes build for perl 5.10.0)
+
 * Thu Feb 07 2008 Tom "spot" Callaway <tcallawa@redhat.com> 1.60-2
 - don't need patch, merged with 1.60
 

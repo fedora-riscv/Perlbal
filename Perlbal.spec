@@ -1,13 +1,12 @@
 Name:           Perlbal
-Version:        1.59
+Version:        1.70
 Release:        1%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
-License:        GPL or Artistic
+License:        GPL+ or Artistic
 Group:          System Environment/Daemons
 URL:            http://search.cpan.org/dist/Perlbal/
 Source0:        http://search.cpan.org/CPAN/authors/id/B/BR/BRADFITZ/%{name}-%{version}.tar.gz
 Source1:        perlbal.init
-Patch0:         Perlbal-1.59-fix-buffered-upload-test.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -42,7 +41,6 @@ can override many parts of request handling and behavior.
 
 %prep
 %setup -q -n Perlbal-%{version}
-%patch0 -p1
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -97,6 +95,11 @@ fi
 
 
 %changelog
+* Wed Mar 26 2008 Ruben Kerkhof <ruben@rubenkerkhof.com> 1.70-1
+- Upstream released new version
+- Correct license tag
+- Drop patch which was accepted upstream
+
 * Wed Jun 20 2007 Ruben Kerkhof <ruben@rubenkerkhof.com> 1.59-1
 - Upstream released new version
 - Received patch from upstream for failing buffered upload test (240693)

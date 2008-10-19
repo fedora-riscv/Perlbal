@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.70
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -21,6 +21,7 @@ BuildRequires:    perl(IO::AIO)
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires:         perl(IO::AIO)
 Requires:         perl(BSD::Resource)
+Requires:         perl(Perlbal::XS::HTTPHeaders)
 
 Requires(post):   /sbin/chkconfig
 Requires(preun):  /sbin/chkconfig, /sbin/service
@@ -95,6 +96,9 @@ fi
 
 
 %changelog
+* Sun Oct 19 2008 Ruben Kerkhof <ruben@rubenkerkhof.com> 1.70-2
+- Use Perlbal::XS::HTTPHeaders to speed up header parsing
+
 * Sun Mar 09 2008 Tom "spot" Callaway <tcallawa@redhat.com> 1.70-1
 - 1.70 (fixes build for perl 5.10.0)
 

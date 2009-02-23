@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.70
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -96,6 +96,9 @@ fi
 
 
 %changelog
+* Mon Feb 23 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.70-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
+
 * Sun Oct 19 2008 Ruben Kerkhof <ruben@rubenkerkhof.com> 1.70-2
 - Use Perlbal::XS::HTTPHeaders to speed up header parsing
 

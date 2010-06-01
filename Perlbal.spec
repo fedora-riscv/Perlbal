@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.75
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -96,6 +96,9 @@ fi
 
 
 %changelog
+* Tue Jun 01 2010 Marcela Maslanova <mmaslano@redhat.com> - 1.75-2
+- Mass rebuild with perl-5.12.0
+
 * Tue Apr 06 2010 Ruben Kerkhof <ruben@rubenkerkhof.com> 1.75-1
 - Upstream released new version
 

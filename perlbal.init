@@ -15,21 +15,22 @@
 # source function library
 . /etc/rc.d/init.d/functions
 
-RETVAL=0
-
 start() {
 	echo -n $"Starting Perlbal: "
 	daemon perlbal --daemon
 	RETVAL=$?
 	echo
 	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/perlbal
+	return $RETVAL
 }
 
 stop() {
 	echo -n $"Stopping Perlbal: "
 	killproc perlbal
+	RETVAL=$?
 	echo
 	[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/perlbal
+	return $RETVAL
 }
 
 restart() {
@@ -52,11 +53,10 @@ case "$1" in
 	;;
   status)
 	status perlbal
-	RETVAL=$?
 	;;
   *)
 	echo $"Usage: $0 {start|stop|status|restart|reload|force-reload|condrestart}"
-	exit 1
+	exit 2
 esac
 
-exit $RETVAL
+exit $?

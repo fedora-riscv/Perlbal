@@ -1,6 +1,6 @@
 Name:           Perlbal
-Version:        1.76
-Release:        2%{?dist}
+Version:        1.78
+Release:        1%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -89,6 +89,10 @@ fi
 
 
 %changelog
+* Wed Feb 09 2011 Ruben Kerkhof <ruben@rubenkerkhof.com> 1.78-1
+- Upstream released new version:
+  http://cpansearch.perl.org/src/DORMANDO/Perlbal-1.78/CHANGES
+
 * Mon Feb 07 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.76-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
 

@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.78
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -89,6 +89,9 @@ fi
 
 
 %changelog
+* Wed Jul 20 2011 Petr Sabata <contyk@redhat.com> - 1.78-2
+- Perl mass rebuild
+
 * Wed Feb 09 2011 Ruben Kerkhof <ruben@rubenkerkhof.com> 1.78-1
 - Upstream released new version:
   http://cpansearch.perl.org/src/DORMANDO/Perlbal-1.78/CHANGES

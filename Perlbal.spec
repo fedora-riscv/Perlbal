@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.78
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -16,6 +16,7 @@ BuildRequires:    perl(HTTP::Response)
 BuildRequires:    perl(BSD::Resource)
 BuildRequires:    perl(Danga::Socket)
 BuildRequires:    perl(IO::AIO)
+BuildRequires:    perl(LWP)
 
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires:         perl(IO::AIO)
@@ -89,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Jul 20 2011 Iain Arnell <iarnell@gmail.com> 1.78-3
+- explicitly buildrequire perl(LWP)
+
 * Wed Jul 20 2011 Petr Sabata <contyk@redhat.com> - 1.78-2
 - Perl mass rebuild
 

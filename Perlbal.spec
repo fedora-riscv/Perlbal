@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.79
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Thu Jul 21 2011 Petr Sabata <contyk@redhat.com> - 1.79-2
+- Perl mass rebuild
+
 * Wed Jul 13 2011 Luis Bazan <bazanluis20@gmail.com> 1.79-1
 - Upstream released new version: http://cpansearch.perl.org/src/DORMANDO/Perlbal-1.79/CHANGES
 

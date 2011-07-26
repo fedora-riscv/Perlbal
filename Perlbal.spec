@@ -1,6 +1,8 @@
+%global perl_bootstrap 1
+
 Name:           Perlbal
 Version:        1.79
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -21,7 +23,9 @@ BuildRequires:    perl(LWP)
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires:         perl(IO::AIO)
 Requires:         perl(BSD::Resource)
+%if !%{defined perl_bootstrap}
 Requires:         perl(Perlbal::XS::HTTPHeaders)
+%endif
 
 Requires(post):   chkconfig
 Requires(preun):  chkconfig, initscripts
@@ -90,6 +94,9 @@ fi
 
 
 %changelog
+* Tue Jul 26 2011 Petr Pisar <ppisar@redhat.com> - 1.79-3
+- Disable XS implementation to bootstrap
+
 * Thu Jul 21 2011 Petr Sabata <contyk@redhat.com> - 1.79-2
 - Perl mass rebuild
 

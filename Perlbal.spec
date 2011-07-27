@@ -1,8 +1,6 @@
-%global perl_bootstrap 1
-
 Name:           Perlbal
 Version:        1.79
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -94,6 +92,9 @@ fi
 
 
 %changelog
+* Wed Jul 27 2011 Petr Pisar <ppisar@redhat.com> - 1.79-4
+- Disable 5.14 perl_bootstrap
+
 * Tue Jul 26 2011 Petr Pisar <ppisar@redhat.com> - 1.79-3
 - Disable XS implementation to bootstrap
 

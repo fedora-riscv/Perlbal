@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.79
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -92,6 +92,9 @@ fi
 
 
 %changelog
+* Thu Jan 12 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.79-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Wed Jul 27 2011 Petr Pisar <ppisar@redhat.com> - 1.79-4
 - Disable 5.14 perl_bootstrap
 

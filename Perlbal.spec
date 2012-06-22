@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.80
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons

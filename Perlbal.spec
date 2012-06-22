@@ -15,7 +15,7 @@ BuildRequires:    perl(Test::More)
 BuildRequires:    perl(HTTP::Date)
 BuildRequires:    perl(HTTP::Response)
 BuildRequires:    perl(BSD::Resource)
-BuildRequires:    perl(Danga::Socket)
+#BuildRequires:    perl(Danga::Socket)
 BuildRequires:    perl(IO::AIO)
 
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
@@ -96,6 +96,9 @@ fi
 
 
 %changelog
+* Fri Jun 22 2012 Luis Bazan <lbazan@fedoraproject.org> - 1.80-2
+- remove buildrequire
+
 * Fri Jun 22 2012 Luis Bazan <lbazan@fedoraproject.org> - 1.80-1
 - New Upstream Version
 

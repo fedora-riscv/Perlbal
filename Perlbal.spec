@@ -5,7 +5,7 @@ Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
 URL:            http://search.cpan.org/dist/Perlbal/
-Source0:        http://www.laqee.unal.edu.co/CPAN/authors/id/D/DO/DORMANDO/Perlbal-1.79.tar.gz
+Source0:        http://www.laqee.unal.edu.co/CPAN/authors/id/D/DO/DORMANDO/%{name}-%{version}.tar.gz
 Source1:        perlbal.init
 BuildArch:      noarch
 

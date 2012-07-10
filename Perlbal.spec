@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.80
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -92,6 +92,9 @@ fi
 
 
 %changelog
+* Tue Jul 10 2012 Petr Pisar <ppisar@redhat.com> - 1.80-3
+- Perl 5.16 re-rebuild of bootstrapped packages
+
 * Thu Jun 28 2012 Petr Pisar <ppisar@redhat.com> - 1.80-2
 - Perl 5.16 rebuild
 

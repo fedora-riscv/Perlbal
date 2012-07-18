@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.80
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -92,6 +92,9 @@ fi
 
 
 %changelog
+* Wed Jul 18 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.80-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
+
 * Tue Jul 10 2012 Petr Pisar <ppisar@redhat.com> - 1.80-3
 - Perl 5.16 re-rebuild of bootstrapped packages
 

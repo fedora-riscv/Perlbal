@@ -92,7 +92,7 @@ fi
 
 
 %changelog
-* Wed Jul 01 2012 Luis Bazan <lbazan@fedoraproject.org> - 1.80-5
+* Wed Aug 01 2012 Luis Bazan <lbazan@fedoraproject.org> - 1.80-5
 - Add readme to docs
 
 * Wed Jul 18 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.80-4

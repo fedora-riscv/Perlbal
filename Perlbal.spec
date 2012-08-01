@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.80
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -15,7 +15,7 @@ BuildRequires:    perl(Test::More)
 BuildRequires:    perl(HTTP::Date)
 BuildRequires:    perl(HTTP::Response)
 BuildRequires:    perl(BSD::Resource)
-#BuildRequires:    perl(Danga::Socket)
+BuildRequires:    perl(Danga::Socket)
 BuildRequires:    perl(IO::AIO)
 
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
@@ -96,6 +96,9 @@ fi
 
 
 %changelog
+* Wed Aug 01 2012 Luis Bazan <lbazan@fedoraproject.org> - 1.80-3
+- enable BuildRequires danga-Socket
+
 * Fri Jun 22 2012 Luis Bazan <lbazan@fedoraproject.org> - 1.80-2
 - remove buildrequire
 

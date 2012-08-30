@@ -15,7 +15,7 @@ BuildRequires:    perl(Test::More)
 BuildRequires:    perl(HTTP::Date)
 BuildRequires:    perl(HTTP::Response)
 BuildRequires:    perl(BSD::Resource)
-#BuildRequires:    perl(Danga::Socket)
+BuildRequires:    perl(Danga::Socket)
 BuildRequires:    perl(IO::AIO)
 
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))

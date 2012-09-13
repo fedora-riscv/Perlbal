@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.80
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -96,6 +96,9 @@ fi
 
 
 %changelog
+* Thu Sep 13 2012 Luis Bazan <lbazan@fedoraproject.org> - 1.80-4
+- Danga Socket is stable now
+
 * Wed Aug 01 2012 Luis Bazan <lbazan@fedoraproject.org> - 1.80-3
 - enable BuildRequires danga-Socket
 

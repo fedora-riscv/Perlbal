@@ -11,7 +11,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
 BuildRequires:    perl(ExtUtils::MakeMaker)
-BuildRequires:    perl(Test::More)
+#BuildRequires:    perl(Test::More)
 BuildRequires:    perl(HTTP::Date)
 BuildRequires:    perl(HTTP::Response)
 BuildRequires:    perl(BSD::Resource)
@@ -21,7 +21,7 @@ BuildRequires:    perl(Net::Netmask)
 BuildRequires:    perl(Test::Simple)
 
 Requires:         perl(Test::Simple)
-Requires:         perl(Test::More)
+#Requires:         perl(Test::More)
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires:         perl(IO::AIO)
 Requires:         perl(BSD::Resource)
@@ -67,8 +67,8 @@ install -D -p -m 0755 %{SOURCE1} %{buildroot}%{_initrddir}/perlbal
 mkdir -p doc/examples
 mv conf/* doc/examples
 
-#%check
-#make test
+%check
+make test
 
 %clean
 rm -rf %{buildroot}
@@ -102,6 +102,7 @@ fi
 %changelog
 * Mon Feb 03 2014 Luis Bazan <lbazan@fedoraproject.org> - 1.80-7
 - change check
+- fix dependecy
 
 * Mon Feb 03 2014 Luis Bazan <lbazan@fedoraproject.org> - 1.80-6
 - Build in el6

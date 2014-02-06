@@ -10,7 +10,7 @@ Source1:        perlbal.init
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
-Patch0:         0001-Avoid-the-need-for-Test-More-0.94.patch
+Patch1:         0001-Avoid-the-need-for-Test-More-0.94.patch
 BuildRequires:    perl(ExtUtils::MakeMaker)
 BuildRequires:    perl(Test::More)
 BuildRequires:    perl(HTTP::Date)

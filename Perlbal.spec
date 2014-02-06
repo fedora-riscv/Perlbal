@@ -12,7 +12,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 Patch1:         0001-Avoid-the-need-for-Test-More-0.94.patch
 BuildRequires:    perl(ExtUtils::MakeMaker)
-BuildRequires:    perl(Test::More)
+#BuildRequires:    perl(Test::More)
 BuildRequires:    perl(HTTP::Date)
 BuildRequires:    perl(HTTP::Response)
 BuildRequires:    perl(BSD::Resource)
@@ -22,7 +22,7 @@ BuildRequires:    perl(Net::Netmask)
 BuildRequires:    perl(Test::Simple)
 
 Requires:         perl(Test::Simple)
-Requires:         perl(Test::More)
+#Requires:         perl(Test::More)
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires:         perl(IO::AIO)
 Requires:         perl(BSD::Resource)

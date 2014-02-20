@@ -1,0 +1,65 @@
+diff --git a/Perlbal-1.80-old-Test::More.patch b/Perlbal-1.80-old-Test::More.patch
+new file mode 100644
+index 0000000..edfd9b5
+--- /dev/null
++++ b/Perlbal-1.80-old-Test::More.patch
+@@ -0,0 +1,59 @@
++--- t/91-fields.t
+++++ t/91-fields.t
++@@ -2,7 +2,7 @@
++ use warnings;
++ use Carp;
++ 
++-use Test::More 0.94 tests => 6;    # last test to print
+++use Test::More 0.88 tests => 7;    # last test to print
++ use Hash::Util;
++ 
++ my $warn_mocked =
++@@ -13,9 +13,9 @@
++ }
++ 
++ SKIP: {
++-    skip "perl need to be greater than 5.009", 1 if ( $] < 5.009 );
+++    skip "perl need to be greater than 5.009", 2 if ( $] < 5.009 );
++ 
++-    subtest 'before using Perlbal::Fields' => sub {
+++    {
++         use_ok('Perlbal::CommandContext');
++         eval { Perlbal::CommandContext->new(); };
++         like( $@, qr{$warn_mocked}, "use old library" );
++--- t/99-benchmark-bool.t
+++++ t/99-benchmark-bool.t
++@@ -1,7 +1,7 @@
++ use strict;
++ use warnings;
++ 
++-use Test::More 0.94 tests => 5;    # last test to print
+++use Test::More 0.88 tests => 6;    # last test to print
++ 
++ for my $class (qw/Perlbal Perlbal::Service/) {
++     use_ok( $class, "can load module $class" );
++@@ -9,13 +9,13 @@
++ 
++ my $class = 'Perlbal::Service';
++ 
++-subtest 'module checking' => sub {
+++{
++     isa_ok( $class->new(), $class, "can create object from $class" );
++ };
++ 
++ my @words = generate_words(1000);
++ 
++-subtest 'check sub integrity' => sub {
+++{
++     is_deeply( test_optimized(), test_original(), "sub optimized" );
++     is_deeply( test_hash(),      test_original(), "sub hash" );
++ };
++@@ -23,7 +23,7 @@
++ SKIP: {
++     skip "need Benchmark module", 1 unless eval "require Benchmark";
++ 
++-    subtest 'benchmark bool sub' => sub {
+++    {
++         use_ok('Benchmark');
++         timethese(
++             shift || 100000,

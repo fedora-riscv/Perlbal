@@ -7,25 +7,22 @@ Group:          System Environment/Daemons
 URL:            http://search.cpan.org/dist/Perlbal/
 Source0:        http://www.laqee.unal.edu.co/CPAN/authors/id/D/DO/DORMANDO/%{name}-%{version}.tar.gz
 Source1:        perlbal.init
-Patch0:         0001-Avoid-the-need-for-Test-More-0.94.patch
+Patch0:         Perlbal-1.80-old-Test-More.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
 BuildRequires:    perl(ExtUtils::MakeMaker)
-#BuildRequires:    perl(Test::More)
+BuildRequires:    perl(Test::More) >= 0.88
 BuildRequires:    perl(HTTP::Date)
 BuildRequires:    perl(HTTP::Response)
 BuildRequires:    perl(BSD::Resource)
 BuildRequires:    perl(Danga::Socket)
 BuildRequires:    perl(IO::AIO)
 BuildRequires:    perl(Net::Netmask)
-BuildRequires:    perl(Test::Simple)
-
-Requires:         perl(Test::Simple)
-#Requires:         perl(Test::More)
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
-Requires:         perl(IO::AIO)
 Requires:         perl(BSD::Resource)
+Requires:         perl(IO::AIO)
+Requires:         perl(Net::Netmask)
 Requires:         perl(Perlbal::XS::HTTPHeaders)
 
 Requires(post):   /sbin/chkconfig
@@ -47,7 +44,10 @@ can override many parts of request handling and behavior.
 
 %prep
 %setup -q -n Perlbal-%{version}
-%patch0 -p1
+
+# Avoid the need for Test::More ≥ 0.94
+%patch0
+
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor

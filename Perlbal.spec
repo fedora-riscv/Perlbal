@@ -1,13 +1,13 @@
 Name:           Perlbal
 Version:        1.80
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
 URL:            http://search.cpan.org/dist/Perlbal/
 Source0:        http://www.laqee.unal.edu.co/CPAN/authors/id/D/DO/DORMANDO/%{name}-%{version}.tar.gz
 Source1:        perlbal.init
-Patch0:         Perlbal-1.80-old-Test-More.patch
+Patch0:         Perlbal-1.80-old-Test::More.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -102,6 +102,9 @@ fi
 
 
 %changelog
+* Thu Feb 20 2014 Luis Bazan <lbazan@fedoraproject.org> - 1.80-9
+- fix patch
+
 * Thu Feb 06 2014 Luis Bazan <lbazan@fedoraproject.org> - 1.80-8
 - add patch test more
 

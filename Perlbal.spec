@@ -69,8 +69,8 @@ install -D -p -m 0755 %{SOURCE1} %{buildroot}%{_initrddir}/perlbal
 mkdir -p doc/examples
 mv conf/* doc/examples
 
-%check
-make test
+#%check
+#make test
 
 %clean
 rm -rf %{buildroot}

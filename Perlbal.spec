@@ -46,7 +46,7 @@ can override many parts of request handling and behavior.
 %setup -q -n Perlbal-%{version}
 
 # Avoid the need for Test::More ≥ 0.94
-%patch0
+%patch0 -p1
 
 
 %build

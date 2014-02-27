@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.80
-Release:        9%{?dist}
+Release:        10%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -19,6 +19,7 @@ BuildRequires:    perl(BSD::Resource)
 BuildRequires:    perl(Danga::Socket)
 BuildRequires:    perl(IO::AIO)
 BuildRequires:    perl(Net::Netmask)
+BuildRequires:    perl(Perlbal::XS::HTTPHeaders)
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires:         perl(BSD::Resource)
 Requires:         perl(IO::AIO)
@@ -102,6 +103,9 @@ fi
 
 
 %changelog
+* Thu Feb 27 2014 Luis Bazan <lbazan@fedoraproject.org> - 1.80-10
+- fix bz#1069711
+
 * Thu Feb 20 2014 Luis Bazan <lbazan@fedoraproject.org> - 1.80-9
 - fix patch
 

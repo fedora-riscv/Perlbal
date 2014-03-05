@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.80
-Release:        11%{?dist}
+Release:        12%{?dist}
 Summary:        Reverse-proxy load balancer and webserver
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -23,9 +23,7 @@ Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $ver
 Requires:         perl(BSD::Resource)
 Requires:         perl(IO::AIO)
 Requires:         perl(Net::Netmask)
-%if !%{defined perl_bootstrap}
-Requires:         perl(Perlbal::XS::HTTPHeaders)
-%endif
+
 Requires(post):   /sbin/chkconfig
 Requires(preun):  /sbin/chkconfig, /sbin/service
 Requires(postun): /sbin/service
@@ -103,6 +101,9 @@ fi
 
 
 %changelog
+* Wed Mar 05 2014 Luis Bazan <lbazan@fedoraproject.org> - 1.80-12
+- fix unresolves dependency
+
 * Thu Feb 27 2014 Luis Bazan <lbazan@fedoraproject.org> - 1.80-11
 - add iff defined bootstrap
 

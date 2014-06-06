@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.80
-Release:        11%{?dist}
+Release:        12%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -92,6 +92,9 @@ fi
 
 
 %changelog
+* Fri Jun 06 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.80-12
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
 * Thu Feb 27 2014 Luis Bazan <lbazan@fedoraproject.org> - 1.80-11
 - remove buildrequire
 

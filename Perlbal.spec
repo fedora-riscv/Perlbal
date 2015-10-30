@@ -9,21 +9,77 @@ Source0:        http://www.laqee.unal.edu.co/CPAN/authors/id/D/DO/DORMANDO/Perlb
 Source1:        perlbal.service
 BuildArch:      noarch
 
-BuildRequires:    perl(ExtUtils::MakeMaker)
-BuildRequires:    perl(Test::More)
-BuildRequires:    perl(HTTP::Date)
-BuildRequires:    perl(HTTP::Response)
-BuildRequires:    perl(BSD::Resource)
-BuildRequires:    perl(Danga::Socket)
-BuildRequires:    perl(IO::AIO)
-BuildRequires:    perl(LWP)
-BuildRequires:    systemd
-
-Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
-Requires:         perl(IO::AIO)
-Requires:         perl(BSD::Resource)
+BuildRequires:  coreutils
+BuildRequires:  findutils
+BuildRequires:  make
+BuildRequires:  perl
+BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  systemd
+# Run-time:
+BuildRequires:  perl(base)
+BuildRequires:  perl(Carp)
+BuildRequires:  perl(constant)
+BuildRequires:  perl(Danga::Socket) >= 1.59
+BuildRequires:  perl(Digest::MD5)
+BuildRequires:  perl(Errno)
+BuildRequires:  perl(Exporter)
+BuildRequires:  perl(Fcntl)
+BuildRequires:  perl(fields)
+BuildRequires:  perl(File::Path)
+BuildRequires:  perl(File::Temp)
+BuildRequires:  perl(Getopt::Long)
+BuildRequires:  perl(HTTP::Date)
+BuildRequires:  perl(HTTP::Request)
+BuildRequires:  perl(HTTP::Response)
+BuildRequires:  perl(IO::File)
+BuildRequires:  perl(IO::Handle)
+BuildRequires:  perl(IO::Select)
+BuildRequires:  perl(IO::Socket)
+BuildRequires:  perl(IO::Socket::INET)
+# IO::Socket::SSL 0.98 not used at tests
+# lib not used at tests
+BuildRequires:  perl(List::Util)
+BuildRequires:  perl(LWP::UserAgent)
+# Net::CIDR::Lite not used at tests
+BuildRequires:  perl(POSIX)
+BuildRequires:  perl(Scalar::Util)
+BuildRequires:  perl(Socket)
+BuildRequires:  perl(strict)
+# Symbol not used at tests
+BuildRequires:  perl(Sys::Syscall)
+BuildRequires:  perl(Time::HiRes)
+# URI not used at tests
+# URI::QueryParam not used at tests
+BuildRequires:  perl(vars)
+BuildRequires:  perl(warnings)
+# Optional run-time:
+# Cache::Memcached::Async not used at tests
+BuildRequires:  perl(BSD::Resource)
+BuildRequires:  perl(IO::AIO) >= 1.6
+# IO::Socket::INET6 not used at tests
+BuildRequires:  perl(Net::Netmask)
 %if !%{defined perl_bootstrap}
-Requires:         perl(Perlbal::XS::HTTPHeaders)
+BuildRequires:  perl(Perlbal::XS::HTTPHeaders) >= 0.20
+%endif
+BuildRequires:  perl(Sys::Syslog)
+# Tests:
+BuildRequires:  perl(FindBin)
+BuildRequires:  perl(Hash::Util)
+BuildRequires:  perl(lib)
+BuildRequires:  perl(Test::More) >= 0.94
+# Optional tests:
+BuildRequires:  perl(Benchmark)
+
+Requires:       perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
+Requires:       perl(File::Temp)
+Requires:       perl(IO::Select)
+Requires:       perl(LWP::UserAgent)
+Requires:       perl(Net::CIDR::Lite)
+# Optional run-time:
+Requires:       perl(BSD::Resource)
+Requires:       perl(IO::AIO) >= 1.6
+%if !%{defined perl_bootstrap}
+Requires:       perl(Perlbal::XS::HTTPHeaders) >= 0.20
 %endif
 
 Requires(post):     systemd
@@ -91,6 +147,7 @@ make test
 %changelog
 * Fri Oct 30 2015 Petr Pisar <ppisar@redhat.com> - 1.80-18
 - Migrate from System V init script to systemd
+- Specify all dependencies
 
 * Tue Jun 16 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.80-17
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild

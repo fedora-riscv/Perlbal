@@ -1,0 +1,10 @@
+[Unit]
+Description=Perlbal load-balancer
+Documentation=man:perlbal(1)
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/perlbal
+
+[Install]
+WantedBy=multi-user.target

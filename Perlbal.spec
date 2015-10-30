@@ -1,12 +1,12 @@
 Name:           Perlbal
 Version:        1.80
-Release:        17%{?dist}
+Release:        18%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
 URL:            http://search.cpan.org/dist/Perlbal/
 Source0:        http://www.laqee.unal.edu.co/CPAN/authors/id/D/DO/DORMANDO/Perlbal-1.80.tar.gz
-Source1:        perlbal.init
+Source1:        perlbal.service
 BuildArch:      noarch
 
 BuildRequires:    perl(ExtUtils::MakeMaker)
@@ -17,6 +17,7 @@ BuildRequires:    perl(BSD::Resource)
 BuildRequires:    perl(Danga::Socket)
 BuildRequires:    perl(IO::AIO)
 BuildRequires:    perl(LWP)
+BuildRequires:    systemd
 
 Requires:         perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Requires:         perl(IO::AIO)
@@ -25,9 +26,10 @@ Requires:         perl(BSD::Resource)
 Requires:         perl(Perlbal::XS::HTTPHeaders)
 %endif
 
-Requires(post):   chkconfig
-Requires(preun):  chkconfig, initscripts
-Requires(postun): chkconfig
+Requires(post):     systemd
+Requires(preun):    systemd
+Requires(postun):   systemd
+
 
 %description
 Perlbal is a single-threaded event-based server supporting HTTP load 
@@ -58,7 +60,7 @@ find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null \;
 %{_fixperms} %{buildroot}/*
 
 install -D -p -m 0644 conf/webserver.conf %{buildroot}%{_sysconfdir}/perlbal/perlbal.conf
-install -D -p -m 0755 %{SOURCE1} %{buildroot}%{_initddir}/perlbal
+install -D -p -m 0755 %{SOURCE1} %{buildroot}%{_unitdir}/perlbal.service
 mkdir -p doc/examples
 mv conf/* doc/examples
 
@@ -66,24 +68,19 @@ mv conf/* doc/examples
 make test
 
 %post
-/sbin/chkconfig --add perlbal
+%systemd_post perlbal.service
 
 %preun
-if [ $1 -eq 0 ]; then
-    /sbin/chkconfig --del perlbal
-    /sbin/service perlbal stop >/dev/null 2>&1 || :
-fi
+%systemd_preun perlbal.service
 
 %postun
-if [ $1 -ge 1 ] ; then
-    /sbin/service perlbal condrestart > /dev/null 2>&1 || :
-fi
+%systemd_postun_with_restart perlbal.service
 
 %files
 %defattr(-,root,root,-)
 %dir %{_sysconfdir}/perlbal
 %config(noreplace) %{_sysconfdir}/perlbal/perlbal.conf
-%{_initddir}/perlbal
+%{_unitdir}/perlbal.service
 %doc CHANGES README doc/*
 %{perl_vendorlib}/*
 %{_bindir}/perlbal
@@ -92,6 +89,9 @@ fi
 
 
 %changelog
+* Fri Oct 30 2015 Petr Pisar <ppisar@redhat.com> - 1.80-18
+- Migrate from System V init script to systemd
+
 * Tue Jun 16 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.80-17
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 

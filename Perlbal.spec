@@ -1,6 +1,6 @@
 Name:           Perlbal
 Version:        1.80
-Release:        18%{?dist}
+Release:        19%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -145,6 +145,9 @@ make test
 
 
 %changelog
+* Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.80-19
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Fri Oct 30 2015 Petr Pisar <ppisar@redhat.com> - 1.80-18
 - Migrate from System V init script to systemd
 - Specify all dependencies

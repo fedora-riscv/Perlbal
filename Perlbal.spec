@@ -1,6 +1,9 @@
+# Bootstrap on aarch64
+%global perl_bootstrap 1
+
 Name:           Perlbal
 Version:        1.80
-Release:        21%{?dist}
+Release:        22%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -146,6 +149,9 @@ make test
 
 
 %changelog
+* Mon Sep 12 2016 Petr Pisar <ppisar@redhat.com> - 1.80-22
+- Bootstrap on aarch64
+
 * Wed May 18 2016 Jitka Plesnikova <jplesnik@redhat.com> - 1.80-21
 - Perl 5.24 re-rebuild of bootstrapped packages
 

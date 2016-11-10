@@ -1,9 +1,6 @@
-# Bootstrap on PowerPC
-%global perl_bootstrap 1
-
 Name:           Perlbal
 Version:        1.80
-Release:        24%{?dist}
+Release:        25%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 Group:          System Environment/Daemons
@@ -149,6 +146,9 @@ make test
 
 
 %changelog
+* Thu Nov 10 2016 Petr Pisar <ppisar@redhat.com> - 1.80-25
+- Finish bootstrap on PowerPC
+
 * Thu Nov 10 2016 Petr Pisar <ppisar@redhat.com> - 1.80-24
 - Bootstrap on PowerPC
 

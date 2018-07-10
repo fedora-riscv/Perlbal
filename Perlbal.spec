@@ -134,7 +134,6 @@ make test
 %systemd_postun_with_restart perlbal.service
 
 %files
-%defattr(-,root,root,-)
 %dir %{_sysconfdir}/perlbal
 %config(noreplace) %{_sysconfdir}/perlbal/perlbal.conf
 %{_unitdir}/perlbal.service

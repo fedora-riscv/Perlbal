@@ -3,7 +3,6 @@ Version:        1.80
 Release:        33%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
-Group:          System Environment/Daemons
 URL:            https://metacpan.org/release/Perlbal
 Source0:        http://www.laqee.unal.edu.co/CPAN/authors/id/D/DO/DORMANDO/Perlbal-1.80.tar.gz
 Source1:        perlbal.service

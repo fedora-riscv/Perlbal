@@ -1,7 +1,8 @@
+%global perl_bootstrap 1
 %bcond_with tests
 Name:           Perlbal
 Version:        1.80
-Release:        50.rv64%{?dist}
+Release:        50.rv64~boostrap%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 URL:            https://metacpan.org/release/Perlbal
@@ -147,6 +148,9 @@ make test
 
 
 %changelog
+* Tue Dec 27 2022 Liu Yang <Yang.Liu.sn@gmail.com> - 1.80-50.rv64~bootstrap
+- Enable bootstrap for riscv64.
+
 * Tue Dec 27 2022 Liu Yang <Yang.Liu.sn@gmail.com> - 1.80-50.rv64
 - Disable tests by default.
 

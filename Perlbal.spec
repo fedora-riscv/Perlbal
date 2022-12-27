@@ -1,6 +1,7 @@
+%bcond_with tests
 Name:           Perlbal
 Version:        1.80
-Release:        50%{?dist}
+Release:        50.rv64%{?dist}
 Summary:        Reverse-proxy load balance and web-server
 License:        GPL+ or Artistic
 URL:            https://metacpan.org/release/Perlbal
@@ -120,8 +121,10 @@ install -D -p -m 0755 %{SOURCE1} %{buildroot}%{_unitdir}/perlbal.service
 mkdir -p doc/examples
 mv conf/* doc/examples
 
+%if %{with tests}
 %check
 make test
+%endif
 
 %post
 %systemd_post perlbal.service
@@ -144,6 +147,9 @@ make test
 
 
 %changelog
+* Tue Dec 27 2022 Liu Yang <Yang.Liu.sn@gmail.com> - 1.80-50.rv64
+- Disable tests by default.
+
 * Wed Jul 20 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.80-50
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
 
